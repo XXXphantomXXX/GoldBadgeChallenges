@@ -14,8 +14,8 @@ namespace CafeRepository
         public string MealName { get; set; }
         public string Description { get; set; }
         public List<string> Ingredients { get; set; }
-        //ask to explan constructers not fully understanding what they do 
-        public Cafe (string mealNum, double price, string mealName, string description, string ingredients)
+         
+        public Cafe (int mealNum, double price, string mealName, string description, List<string> ingredients)
         {
             MealNum = mealNum;
             Price = price;

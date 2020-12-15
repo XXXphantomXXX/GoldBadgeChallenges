@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CafeRepository;
+
+
 
 namespace CafeConsole
 {
+
     class CafeUI
     {
-        public void Run()
+        private CafeRepo _menuRepo = new CafeRepo();
+
+      
+       public void Run()
         {
             Menu();
         }
-        //why is menu void isnt it returning what the user is inputing??
+
+        
         private void Menu()
         {
             bool KeepRunning = true;
@@ -45,7 +53,7 @@ namespace CafeConsole
                         break;
 
                     case "4":
-                        showMenu();
+                        ShowMenu();
                         break;
 
                     case "5":
@@ -62,18 +70,67 @@ namespace CafeConsole
                 Console.Clear();
             }
         }
-        
+
 
 
         //Create
+        public void AddNewDish()
+        {
+            Cafe foodItem = new Cafe();//ask about
+            Console.WriteLine("Enter dish name");
+            foodItem.MealName = Console.ReadLine();
+
+            Console.WriteLine("Enter Dish description ");
+            foodItem.Description = Console.ReadLine();
+
+            Console.WriteLine("Enter Dish Number");
+            foodItem.MealNum = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Dish Price");
+            foodItem.Price = double.Parse(Console.ReadLine());
+
+            List<string> ingredientList = new List<string>();
+            Console.WriteLine("how many ingredients are in this dish?");
+            int ingredentnum = int.Parse(Console.ReadLine());
+            for(int i = 0; i < ingredentnum; i++)
+            {
+                Console.WriteLine("what is your next ingredient");
+                string ingredient = Console.ReadLine();
+                ingredientList.Add(ingredient);
+            }
+
+            _menuRepo.AddMeal(foodItem);
+        }
+
 
         //Read
+        public void ShowMenu()
+        {
+            List<Cafe> ViewAllMenu = _menuRepo.GetMenu();
 
+            foreach(Cafe FoodItem in ViewAllMenu)
+            {
+                Console.WriteLine($"Name:{FoodItem.MealName}\n Description:{FoodItem.Description}\n " +
+                    $"Ingredients:{FoodItem.Ingredients}\n Meal Number:{FoodItem.MealNum}\n Price:{FoodItem.Price}");
+            }
+        }
         //Update
 
         //Delete
+        public void RemoveDish()
+        {
+            ShowMenu();
+
+
+        }
 
 
         //Seed Data
+        private void SeedList()
+        {
+            Cafe ChickenCurry = new Cafe(5, 6.99, "Chicken Curry","chicken with curry sauce and rice","curry");
+            _menuRepo.AddMeal(ChickenCurry);
+        }
     }
 }
+

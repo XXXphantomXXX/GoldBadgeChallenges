@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CafeRepository
 {
-    class CafeRepo
+    public class CafeRepo
     {
-        private readonly List<Cafe> _cafemenu = new List<Cafe>();
+        public readonly List<Cafe> _cafemenu = new List<Cafe>();
 
         //Create
         public void AddMeal(Cafe FoodItem)
@@ -21,9 +21,8 @@ namespace CafeRepository
         {
             return _cafemenu;
         }
-        //Update
-        //ask why it keeps making it a class not a method
-        public UpdateMenu(string originalMealNum, Cafe NewMealNum)
+        //ask why method is giving error
+        public bool UpdateMenu(int originalMealNum, Cafe NewMealNum)
         {
             //find
             Cafe oldMealNum = GetMenuByNum(originalMealNum);
@@ -36,23 +35,27 @@ namespace CafeRepository
                 oldMealNum.MealName = NewMealNum.MealName;
                 oldMealNum.Description = NewMealNum.Description;
                 oldMealNum.Ingredients = NewMealNum.Ingredients;
+                return true;
             }
-
+            else 
+            {
+                return false;
+            }
         }
 
         //Delete
-        public bool RemoveFoodItem(string MealNum)
+        public bool RemoveFoodItem(int mealNum)
         {
-            Cafe FoodItem = GetMenuByNum(FoodItem);
+            Cafe foodItem = GetMenuByNum(mealNum);
 
-            if (FoodItem == nill)
+            if (foodItem == null)
             {
                 return false;
             }
             int intialCount = _cafemenu.Count;
-            _cafemenu.Remove(FoodItem);
+            _cafemenu.Remove(foodItem);
 
-            if(intialCount > _cafemenu.count)
+            if(intialCount > _cafemenu.Count)
             {
                 return true;
             }
@@ -68,11 +71,11 @@ namespace CafeRepository
         //GetHelper Method GetByMealNumber\
         private Cafe GetMenuByNum(int MealNum)
         {
-            foreach(Cafe FoodItem in _cafemenu)
+            foreach(Cafe foodItem in _cafemenu)
             {
-                if (FoodItem.MealNum == MealNum)
+                if (foodItem.MealNum == MealNum)
                 {
-                    return FoodItem;
+                    return foodItem;
                 }
             }
             return null;
