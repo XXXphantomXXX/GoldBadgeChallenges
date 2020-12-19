@@ -1,2 +1,10 @@
 C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\obj\Debug\CafeConsole.csprojAssemblyReference.cache
 C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\obj\Debug\CafeConsole.csproj.CoreCompileInputs.cache
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\bin\Debug\CafeConsole.exe.config
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\bin\Debug\CafeConsole.exe
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\bin\Debug\CafeConsole.pdb
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\bin\Debug\GoldBadgeChallenges.dll
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\bin\Debug\GoldBadgeChallenges.pdb
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\obj\Debug\CafeConsole.csproj.CopyComplete
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\obj\Debug\CafeConsole.exe
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\CafeConsole\obj\Debug\CafeConsole.pdb

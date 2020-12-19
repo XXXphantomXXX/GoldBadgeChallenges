@@ -1,0 +1,5 @@
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\BadgeRepository\bin\Debug\BadgeRepository.dll
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\BadgeRepository\bin\Debug\BadgeRepository.pdb
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\BadgeRepository\obj\Debug\BadgeRepository.csproj.CoreCompileInputs.cache
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\BadgeRepository\obj\Debug\BadgeRepository.dll
+C:\Eleven Fifty projects\GBchallege\GoldBadgeChallenges\BadgeRepository\obj\Debug\BadgeRepository.pdb

@@ -17,6 +17,7 @@ namespace CafeConsole
       
        public void Run()
         {
+            SeedList();
             Menu();
         }
 
@@ -76,7 +77,7 @@ namespace CafeConsole
         //Create
         public void AddNewDish()
         {
-            Cafe foodItem = new Cafe();//ask about
+            Cafe foodItem = new Cafe();
             Console.WriteLine("Enter dish name");
             foodItem.MealName = Console.ReadLine();
 
@@ -99,6 +100,8 @@ namespace CafeConsole
                 ingredientList.Add(ingredient);
             }
 
+            foodItem.Ingredients.Add(ingredientList);
+
             _menuRepo.AddMeal(foodItem);
         }
 
@@ -106,6 +109,8 @@ namespace CafeConsole
         //Read
         public void ShowMenu()
         {
+            Console.Clear();
+
             List<Cafe> ViewAllMenu = _menuRepo.GetMenu();
 
             foreach(Cafe FoodItem in ViewAllMenu)
@@ -115,21 +120,68 @@ namespace CafeConsole
             }
         }
         //Update
+        public void UpdateDish()
+        {
+            ShowMenu();
+
+            Console.WriteLine("Enter number of Item youll like to update.");
+
+            int oldNum = int.Parse(Console.ReadLine());
+
+            Cafe foodItem = new Cafe();
+            Console.WriteLine("Enter dish name");
+            foodItem.MealName = Console.ReadLine();
+
+            Console.WriteLine("Enter Dish description ");
+            foodItem.Description = Console.ReadLine();
+
+            Console.WriteLine("Enter Dish Number");
+            foodItem.MealNum = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Dish Price");
+            foodItem.Price = double.Parse(Console.ReadLine());
+
+            List<string> ingredientList = new List<string>();
+            Console.WriteLine("how many ingredients are in this dish?");
+            int ingredentnum = int.Parse(Console.ReadLine());
+            for (int i = 0; i < ingredentnum; i++)
+            {
+                Console.WriteLine("what is your next ingredient");
+                string ingredient = Console.ReadLine();
+                ingredientList.Add(ingredient);
+            }
+
+            _menuRepo.UpdateMenu(oldNum, foodItem);
+
+        }
 
         //Delete
         public void RemoveDish()
         {
             ShowMenu();
 
+            Console.WriteLine("Enter the meal Number that you would like to delete");
+            int input = int.Parse(Console.ReadLine());
+            bool wasDeleted = _menuRepo.RemoveFoodItem(input);
+
+            if (wasDeleted)
+            {
+                Console.WriteLine("the meal was deleted!");
+            }
+            else
+            {
+                Console.WriteLine("Could not be deleted");
+            }
+
 
         }
 
 
         //Seed Data
-        private void SeedList()
+        public void SeedList()
         {
-            Cafe ChickenCurry = new Cafe(5, 6.99, "Chicken Curry","chicken with curry sauce and rice","curry");
-            _menuRepo.AddMeal(ChickenCurry);
+            Cafe ChickenCurry = new Cafe(5, 6.99, "Chicken Curry","chicken with curry sauce and rice",new List<string> { "curry" , "chicken" });
+            _menuRepo.AddMeal(ChickenCurry);//ask why it isnt showing seed data
         }
     }
 }

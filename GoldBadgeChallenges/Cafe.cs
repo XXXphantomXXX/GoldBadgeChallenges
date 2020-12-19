@@ -14,7 +14,10 @@ namespace CafeRepository
         public string MealName { get; set; }
         public string Description { get; set; }
         public List<string> Ingredients { get; set; }
-         
+        public Cafe()
+        {
+
+        }
         public Cafe (int mealNum, double price, string mealName, string description, List<string> ingredients)
         {
             MealNum = mealNum;

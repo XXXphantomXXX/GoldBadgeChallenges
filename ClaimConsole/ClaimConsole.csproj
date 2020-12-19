@@ -50,5 +50,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClaimRepository\ClaimRepository.csproj">
+      <Project>{cce51a2f-ca3c-4416-b00c-ff032f35cc6d}</Project>
+      <Name>ClaimRepository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
